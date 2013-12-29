@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'principal',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -65,9 +66,9 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-ES'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Madrid'
 
 USE_I18N = True
 
@@ -75,8 +76,26 @@ USE_L10N = True
 
 USE_TZ = True
 
+#Idiomas
+ugettext = lambda s: s
+LANGUAGES = (
+    ('es', ugettext('Spanish')),
+    ('en', ugettext('English')),
+)
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.6/howto/static-files/
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'carga')
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR,'locale'), 
+)
 
 STATIC_URL = '/static/'
+STATIC_ROOT = 'staticfiles'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR,'static'),
+)
+
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR,'plantillas'),
+)
